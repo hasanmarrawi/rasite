@@ -16,6 +16,7 @@ if(isset($_POST['submit']) && $_SERVER['REQUEST_METHOD'] == "POST"){
     $row = $result->fetch_assoc();
     if(password_verify($password, $row['password'])){
   		$_SESSION['username'] = $username;
+      $_SESSION['user_rights'] = $row['user_rights'];
   		header('Location: admin.php');
   	}else{
   		$error = "Username or password incorrect.";
